@@ -6,7 +6,6 @@ import gzip
 from tqdm.auto import tqdm
 
 urls = "urls-toplevel2020.txt.gz"
-urls = "urls.txt.gz"
 if not os.path.isfile(urls):
     r = requests.get("https://github.com/datanizing/ix-reddit/blob/main/" + urls)
     open(urls, 'wb').write(r.content)
