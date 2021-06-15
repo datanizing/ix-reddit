@@ -5,9 +5,10 @@ import requests
 import gzip
 from tqdm.auto import tqdm
 
+# auch ersetzbar urls-all2020.txt.gz
 urls = "urls-toplevel2020.txt.gz"
 if not os.path.isfile(urls):
-    r = requests.get("https://github.com/datanizing/ix-reddit/blob/main/" + urls)
+    r = requests.get("https://github.com/datanizing/ix-reddit/raw/main/" + urls)
     open(urls, 'wb').write(r.content)
 
 s = requests.Session()
