@@ -1,0 +1,1980 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=tree-radial
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+var data = 
+{
+  "name": "biotech",
+  "children": [
+    {
+      "name": "pfizer",
+      "value": 0.5527268648147583,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "merck",
+          "value": 0.6863663196563721,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "agriculture_market",
+              "value": 0.5450788140296936,
+              "collapsed": true
+            },
+            {
+              "name": "general_electric",
+              "value": 0.5411681532859802,
+              "collapsed": true
+            },
+            {
+              "name": "global_forecast",
+              "value": 0.5385112166404724,
+              "collapsed": true
+            },
+            {
+              "name": "pharmaceuticals",
+              "value": 0.5383356213569641,
+              "collapsed": true
+            },
+            {
+              "name": "market_demand",
+              "value": 0.5383261442184448,
+              "collapsed": true
+            },
+            {
+              "name": "becton",
+              "value": 0.536475658416748,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "glaxosmithkline",
+          "value": 0.6308037638664246,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "detect_date_rape",
+              "value": 0.5519468784332275,
+              "collapsed": true
+            },
+            {
+              "name": "immunotherapy",
+              "value": 0.5145000219345093,
+              "collapsed": true
+            },
+            {
+              "name": "disease_treatment",
+              "value": 0.5050928592681885,
+              "collapsed": true
+            },
+            {
+              "name": "trend_developments",
+              "value": 0.5023288726806641,
+              "collapsed": true
+            },
+            {
+              "name": "treat_alzheimer",
+              "value": 0.49669063091278076,
+              "collapsed": true
+            },
+            {
+              "name": "treatment_centers",
+              "value": 0.4886249601840973,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "pharma",
+          "value": 0.6279239058494568,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "martin_shkreli",
+              "value": 0.49704161286354065,
+              "collapsed": true
+            },
+            {
+              "name": "erp_software_solution",
+              "value": 0.48041123151779175,
+              "collapsed": true
+            },
+            {
+              "name": "medicinal",
+              "value": 0.4693409502506256,
+              "collapsed": true
+            },
+            {
+              "name": "pharmaceutical_industry",
+              "value": 0.4629090130329132,
+              "collapsed": true
+            },
+            {
+              "name": "life_sciences",
+              "value": 0.45937684178352356,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "big_pharma",
+          "value": 0.6270666122436523,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "drug",
+              "value": 0.5305607318878174,
+              "collapsed": true
+            },
+            {
+              "name": "pharma_company",
+              "value": 0.5213989019393921,
+              "collapsed": true
+            },
+            {
+              "name": "chemo",
+              "value": 0.4963695704936981,
+              "collapsed": true
+            },
+            {
+              "name": "23andme",
+              "value": 0.4955815374851227,
+              "collapsed": true
+            },
+            {
+              "name": "gsk",
+              "value": 0.49045056104660034,
+              "collapsed": true
+            },
+            {
+              "name": "smugglers",
+              "value": 0.48789292573928833,
+              "collapsed": true
+            },
+            {
+              "name": "cartels",
+              "value": 0.485090047121048,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "roche",
+          "value": 0.6186344623565674,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "precision_medicine",
+              "value": 0.6520853638648987,
+              "collapsed": true
+            },
+            {
+              "name": "pcr",
+              "value": 0.634319007396698,
+              "collapsed": true
+            },
+            {
+              "name": "hematology",
+              "value": 0.627894401550293,
+              "collapsed": true
+            },
+            {
+              "name": "vitro",
+              "value": 0.6203024983406067,
+              "collapsed": true
+            },
+            {
+              "name": "clinical_chemistry",
+              "value": 0.6180750131607056,
+              "collapsed": true
+            },
+            {
+              "name": "analyzers",
+              "value": 0.6099854707717896,
+              "collapsed": true
+            },
+            {
+              "name": "multiple_sclerosis",
+              "value": 0.6094712018966675,
+              "collapsed": true
+            },
+            {
+              "name": "stem_cells",
+              "value": 0.6064968109130859,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "pharmaceutical",
+          "value": 0.615780234336853,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "formulation",
+              "value": 0.5378800630569458,
+              "collapsed": true
+            },
+            {
+              "name": "prendio",
+              "value": 0.5223391056060791,
+              "collapsed": true
+            },
+            {
+              "name": "lims",
+              "value": 0.507663905620575,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "moderna",
+          "value": 0.6015584468841553,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "coronavirus_vaccine",
+              "value": 0.5980018377304077,
+              "collapsed": true
+            },
+            {
+              "name": "q3_result",
+              "value": 0.5210840106010437,
+              "collapsed": true
+            },
+            {
+              "name": "retain_talent",
+              "value": 0.510306715965271,
+              "collapsed": true
+            },
+            {
+              "name": "beat_estimate",
+              "value": 0.4993153214454651,
+              "collapsed": true
+            },
+            {
+              "name": "net_income",
+              "value": 0.4923236668109894,
+              "collapsed": true
+            },
+            {
+              "name": "biontech",
+              "value": 0.49170005321502686,
+              "collapsed": true
+            },
+            {
+              "name": "earnings_report",
+              "value": 0.49161338806152344,
+              "collapsed": true
+            },
+            {
+              "name": "revenue_forecast",
+              "value": 0.4826793968677521,
+              "collapsed": true
+            },
+            {
+              "name": "inc_fb",
+              "value": 0.481106698513031,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "novartis",
+          "value": 0.5966978073120117,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "smart_contact_lense",
+              "value": 0.6430432200431824,
+              "collapsed": true
+            },
+            {
+              "name": "glucose",
+              "value": 0.6204710006713867,
+              "collapsed": true
+            },
+            {
+              "name": "smart_contact_lenses",
+              "value": 0.6180503368377686,
+              "collapsed": true
+            },
+            {
+              "name": "measure_glucose_level",
+              "value": 0.5743979811668396,
+              "collapsed": true
+            },
+            {
+              "name": "glucose_level",
+              "value": 0.5632781386375427,
+              "collapsed": true
+            },
+            {
+              "name": "smart_contact_lens",
+              "value": 0.5607630014419556,
+              "collapsed": true
+            },
+            {
+              "name": "diabetic",
+              "value": 0.5246973633766174,
+              "collapsed": true
+            },
+            {
+              "name": "glucose_sensor",
+              "value": 0.5159684419631958,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "mylan",
+          "value": 0.5770466923713684,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "both_wrong",
+              "value": 0.5466278791427612,
+              "collapsed": true
+            },
+            {
+              "name": "shkreli",
+              "value": 0.5341402888298035,
+              "collapsed": true
+            },
+            {
+              "name": "epipen",
+              "value": 0.506981611251831,
+              "collapsed": true
+            },
+            {
+              "name": "chop_block",
+              "value": 0.49616214632987976,
+              "collapsed": true
+            },
+            {
+              "name": "medicaid",
+              "value": 0.47553640604019165,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "biogen",
+          "value": 0.5759900808334351,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "plaque",
+              "value": 0.5957602262496948,
+              "collapsed": true
+            },
+            {
+              "name": "substance_abuse",
+              "value": 0.5384635925292969,
+              "collapsed": true
+            },
+            {
+              "name": "therapeutics",
+              "value": 0.5352653861045837,
+              "collapsed": true
+            },
+            {
+              "name": "drug_discovery",
+              "value": 0.5351030826568604,
+              "collapsed": true
+            },
+            {
+              "name": "alzheimer",
+              "value": 0.5290900468826294,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "genetics",
+      "value": 0.5296915769577026,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "bioinformatics",
+          "value": 0.6010088920593262,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "plasmid",
+              "value": 0.5827455520629883,
+              "collapsed": true
+            },
+            {
+              "name": "reagents",
+              "value": 0.5626300573348999,
+              "collapsed": true
+            },
+            {
+              "name": "microarray",
+              "value": 0.5580869317054749,
+              "collapsed": true
+            },
+            {
+              "name": "bioinformatic",
+              "value": 0.551233172416687,
+              "collapsed": true
+            },
+            {
+              "name": "jsb_market_research",
+              "value": 0.5281856656074524,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "genetic",
+          "value": 0.5567548871040344,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "dna",
+              "value": 0.6154047846794128,
+              "collapsed": true
+            },
+            {
+              "name": "genome",
+              "value": 0.6135996580123901,
+              "collapsed": true
+            },
+            {
+              "name": "designer_baby",
+              "value": 0.5878918170928955,
+              "collapsed": true
+            },
+            {
+              "name": "gene",
+              "value": 0.5856592655181885,
+              "collapsed": true
+            },
+            {
+              "name": "mutation",
+              "value": 0.5429460406303406,
+              "collapsed": true
+            },
+            {
+              "name": "crispr",
+              "value": 0.5282732248306274,
+              "collapsed": true
+            },
+            {
+              "name": "protein",
+              "value": 0.5130279064178467,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "sequencing",
+          "value": 0.5368219614028931,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "genomics",
+              "value": 0.6241358518600464,
+              "collapsed": true
+            },
+            {
+              "name": "medical_imaging",
+              "value": 0.5991878509521484,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "therapies",
+          "value": 0.5359071493148804,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "disorders",
+              "value": 0.6581056118011475,
+              "collapsed": true
+            },
+            {
+              "name": "neurosurgery",
+              "value": 0.6342543959617615,
+              "collapsed": true
+            },
+            {
+              "name": "lupus",
+              "value": 0.6220312118530273,
+              "collapsed": true
+            },
+            {
+              "name": "thyroid",
+              "value": 0.6157070994377136,
+              "collapsed": true
+            },
+            {
+              "name": "menopause",
+              "value": 0.6083254814147949,
+              "collapsed": true
+            },
+            {
+              "name": "varicose_vein",
+              "value": 0.6076761484146118,
+              "collapsed": true
+            },
+            {
+              "name": "pain_management",
+              "value": 0.6020593643188477,
+              "collapsed": true
+            },
+            {
+              "name": "early_detection",
+              "value": 0.5957648754119873,
+              "collapsed": true
+            },
+            {
+              "name": "natural_remedies",
+              "value": 0.5943390130996704,
+              "collapsed": true
+            },
+            {
+              "name": "dermatitis",
+              "value": 0.5924797058105469,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "biotech",
+          "value": 0.5296916365623474,
+          "collapsed": true,
+          "children": [
+
+          ]
+        },
+        {
+          "name": "genomic",
+          "value": 0.5130395889282227,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "researchkit",
+              "value": 0.587424635887146,
+              "collapsed": true
+            },
+            {
+              "name": "personalized_medicine",
+              "value": 0.5266463756561279,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "impossible_foods",
+      "value": 0.5165760517120361,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "plant_based",
+          "value": 0.7228145599365234,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "make_pizza_dough",
+              "value": 0.6352490186691284,
+              "collapsed": true
+            },
+            {
+              "name": "memphis_meats",
+              "value": 0.6329712271690369,
+              "collapsed": true
+            },
+            {
+              "name": "base_meat",
+              "value": 0.6295223832130432,
+              "collapsed": true
+            },
+            {
+              "name": "go_theranos_dream",
+              "value": 0.6215730309486389,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "hampton_creek",
+          "value": 0.6753255128860474,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "foods",
+              "value": 0.6648874282836914,
+              "collapsed": true
+            },
+            {
+              "name": "cultured",
+              "value": 0.630678653717041,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "impossible_burger",
+          "value": 0.6716033220291138,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "steak",
+              "value": 0.6533890962600708,
+              "collapsed": true
+            },
+            {
+              "name": "burger",
+              "value": 0.627230167388916,
+              "collapsed": true
+            },
+            {
+              "name": "meatless",
+              "value": 0.609585165977478,
+              "collapsed": true
+            },
+            {
+              "name": "lab_grow_meat",
+              "value": 0.607264518737793,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "beyond_meat",
+          "value": 0.6533265113830566,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "finnish_blood_testing",
+              "value": 0.6308590173721313,
+              "collapsed": true
+            },
+            {
+              "name": "agtech",
+              "value": 0.6066284775733948,
+              "collapsed": true
+            },
+            {
+              "name": "sustainable_food",
+              "value": 0.5925307273864746,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "lab_grown",
+          "value": 0.637921154499054,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "lab_grow",
+              "value": 0.6479901075363159,
+              "collapsed": true
+            },
+            {
+              "name": "test_tube",
+              "value": 0.6406420469284058,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "meat",
+          "value": 0.6288583874702454,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cultured_meat",
+              "value": 0.6586930751800537,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "veggie_burger",
+          "value": 0.6254918575286865,
+          "collapsed": true,
+          "children": [
+
+          ]
+        },
+        {
+          "name": "burgers",
+          "value": 0.6184685230255127,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "vegetarian",
+              "value": 0.599406361579895,
+              "collapsed": true
+            },
+            {
+              "name": "vegan",
+              "value": 0.5806623101234436,
+              "collapsed": true
+            },
+            {
+              "name": "soylent",
+              "value": 0.5794110298156738,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "plant_base",
+          "value": 0.6183793544769287,
+          "collapsed": true,
+          "children": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "biobank",
+      "value": 0.4930415153503418,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "blood_sample",
+          "value": 0.7186357975006104,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "biopsy",
+              "value": 0.6495330929756165,
+              "collapsed": true
+            },
+            {
+              "name": "diabete",
+              "value": 0.6212366819381714,
+              "collapsed": true
+            },
+            {
+              "name": "detect_disease",
+              "value": 0.6200401782989502,
+              "collapsed": true
+            },
+            {
+              "name": "glucose_monitor",
+              "value": 0.5943640470504761,
+              "collapsed": true
+            },
+            {
+              "name": "diagnose_disease",
+              "value": 0.5840479135513306,
+              "collapsed": true
+            },
+            {
+              "name": "respiratory",
+              "value": 0.5812769532203674,
+              "collapsed": true
+            },
+            {
+              "name": "saliva",
+              "value": 0.580824613571167,
+              "collapsed": true
+            },
+            {
+              "name": "retinopathy",
+              "value": 0.5659841895103455,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "medical_research",
+          "value": 0.6465792655944824,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cancer_treatment",
+              "value": 0.5891894102096558,
+              "collapsed": true
+            },
+            {
+              "name": "kidney",
+              "value": 0.4994039535522461,
+              "collapsed": true
+            },
+            {
+              "name": "biotechnology",
+              "value": 0.48846346139907837,
+              "collapsed": true
+            },
+            {
+              "name": "clinical_trials",
+              "value": 0.4843372106552124,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "nightingale",
+          "value": 0.6338468790054321,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "perkinelmer",
+              "value": 0.592690110206604,
+              "collapsed": true
+            },
+            {
+              "name": "coronavirus_screening",
+              "value": 0.5150251388549805,
+              "collapsed": true
+            },
+            {
+              "name": "finance_|_everythig",
+              "value": 0.47698622941970825,
+              "collapsed": true
+            },
+            {
+              "name": "focalpoint",
+              "value": 0.47652775049209595,
+              "collapsed": true
+            },
+            {
+              "name": "carekit",
+              "value": 0.4740563929080963,
+              "collapsed": true
+            },
+            {
+              "name": "parkway",
+              "value": 0.46121037006378174,
+              "collapsed": true
+            },
+            {
+              "name": "ingram_micro",
+              "value": 0.4529950022697449,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "cardiovascular",
+          "value": 0.5626951456069946,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "heart_failure",
+              "value": 0.6040375232696533,
+              "collapsed": true
+            },
+            {
+              "name": "cardiac",
+              "value": 0.5942721366882324,
+              "collapsed": true
+            },
+            {
+              "name": "diseases",
+              "value": 0.5915105938911438,
+              "collapsed": true
+            },
+            {
+              "name": "non_-_invasive",
+              "value": 0.5869079828262329,
+              "collapsed": true
+            },
+            {
+              "name": "hypertension",
+              "value": 0.5804459452629089,
+              "collapsed": true
+            },
+            {
+              "name": "heart_disease",
+              "value": 0.5798079371452332,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "clinical_trial",
+          "value": 0.5514184236526489,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "restore_vision_blind",
+              "value": 0.6129810214042664,
+              "collapsed": true
+            },
+            {
+              "name": "animal_testing",
+              "value": 0.5449284315109253,
+              "collapsed": true
+            },
+            {
+              "name": "transplant",
+              "value": 0.5320443511009216,
+              "collapsed": true
+            },
+            {
+              "name": "patient",
+              "value": 0.5244786143302917,
+              "collapsed": true
+            },
+            {
+              "name": "stem_cell_treatment",
+              "value": 0.5242931842803955,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "nanorobots",
+          "value": 0.5360586643218994,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cystic",
+              "value": 0.6486848592758179,
+              "collapsed": true
+            },
+            {
+              "name": "fibrosis",
+              "value": 0.6449480056762695,
+              "collapsed": true
+            },
+            {
+              "name": "lymphoma",
+              "value": 0.6269744038581848,
+              "collapsed": true
+            },
+            {
+              "name": "remission",
+              "value": 0.6115750074386597,
+              "collapsed": true
+            },
+            {
+              "name": "immune_cell",
+              "value": 0.6016263365745544,
+              "collapsed": true
+            },
+            {
+              "name": "doctor_diagnose",
+              "value": 0.6007460355758667,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "regenerative_medicine",
+      "value": 0.490782767534256,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "50-year_old",
+          "value": 0.5698679089546204,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "revolutionize_medicine",
+              "value": 0.5791122913360596,
+              "collapsed": true
+            },
+            {
+              "name": "electronic_nose",
+              "value": 0.5150153040885925,
+              "collapsed": true
+            },
+            {
+              "name": "fight_disease",
+              "value": 0.48865047097206116,
+              "collapsed": true
+            },
+            {
+              "name": "eye_disease",
+              "value": 0.48815131187438965,
+              "collapsed": true
+            },
+            {
+              "name": "detect_cancer",
+              "value": 0.4827583134174347,
+              "collapsed": true
+            },
+            {
+              "name": "quickly_accurately",
+              "value": 0.482528954744339,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "bioprinting",
+          "value": 0.5494943857192993,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "organovo",
+              "value": 0.6747235059738159,
+              "collapsed": true
+            },
+            {
+              "name": "human_tissue",
+              "value": 0.6503018736839294,
+              "collapsed": true
+            },
+            {
+              "name": "biomaterial",
+              "value": 0.6304799318313599,
+              "collapsed": true
+            },
+            {
+              "name": "bioprinter",
+              "value": 0.6173028945922852,
+              "collapsed": true
+            },
+            {
+              "name": "artificial_blood_vessel",
+              "value": 0.6084181666374207,
+              "collapsed": true
+            },
+            {
+              "name": "tissue_engineering",
+              "value": 0.6043574810028076,
+              "collapsed": true
+            },
+            {
+              "name": "bioengineering",
+              "value": 0.590221107006073,
+              "collapsed": true
+            },
+            {
+              "name": "body_parts",
+              "value": 0.5690611600875854,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "nanomedicine",
+          "value": 0.5482134222984314,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "treat_cancer",
+              "value": 0.645431637763977,
+              "collapsed": true
+            },
+            {
+              "name": "digital_health",
+              "value": 0.5613080859184265,
+              "collapsed": true
+            },
+            {
+              "name": "3rd_international_conference",
+              "value": 0.5502155423164368,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "silkworm",
+          "value": 0.5440748929977417,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "spider_silk",
+              "value": 0.6133983731269836,
+              "collapsed": true
+            },
+            {
+              "name": "synthetic_muscle",
+              "value": 0.5937991142272949,
+              "collapsed": true
+            },
+            {
+              "name": "artificial_spider_silk",
+              "value": 0.5763684511184692,
+              "collapsed": true
+            },
+            {
+              "name": "atomically_thin",
+              "value": 0.5692673325538635,
+              "collapsed": true
+            },
+            {
+              "name": "silk",
+              "value": 0.5508130192756653,
+              "collapsed": true
+            },
+            {
+              "name": "bio_-",
+              "value": 0.5489013195037842,
+              "collapsed": true
+            },
+            {
+              "name": "artificial_bone",
+              "value": 0.5464011430740356,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "bioprinte",
+          "value": 0.5415427088737488,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "chicken_nugget",
+              "value": 0.6862831115722656,
+              "collapsed": true
+            },
+            {
+              "name": "3d_bioprinter",
+              "value": 0.6815371513366699,
+              "collapsed": true
+            },
+            {
+              "name": "human_organ",
+              "value": 0.6685839891433716,
+              "collapsed": true
+            },
+            {
+              "name": "cartilage",
+              "value": 0.6147050261497498,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "organ_transplant",
+          "value": 0.536040186882019,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "transform_medicine",
+              "value": 0.6921098828315735,
+              "collapsed": true
+            },
+            {
+              "name": "organ_chip",
+              "value": 0.6454885601997375,
+              "collapsed": true
+            },
+            {
+              "name": "regrow",
+              "value": 0.6290504336357117,
+              "collapsed": true
+            },
+            {
+              "name": "foreskin",
+              "value": 0.6284568905830383,
+              "collapsed": true
+            },
+            {
+              "name": "rna",
+              "value": 0.6021236181259155,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cancer_drug",
+      "value": 0.47831884026527405,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "tuberculosis",
+          "value": 0.5979709625244141,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "malaria",
+              "value": 0.6132405400276184,
+              "collapsed": true
+            },
+            {
+              "name": "fight_cancer",
+              "value": 0.6070177555084229,
+              "collapsed": true
+            },
+            {
+              "name": "antibiotic_resistant",
+              "value": 0.5964500308036804,
+              "collapsed": true
+            },
+            {
+              "name": "antibody",
+              "value": 0.594579815864563,
+              "collapsed": true
+            },
+            {
+              "name": "pancreatic_cancer",
+              "value": 0.5921770334243774,
+              "collapsed": true
+            },
+            {
+              "name": "deliver_drug",
+              "value": 0.5829793810844421,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "nanorobot",
+          "value": 0.5789425373077393,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cancer_cells",
+              "value": 0.6464278697967529,
+              "collapsed": true
+            },
+            {
+              "name": "south_korean_scientist",
+              "value": 0.6194636821746826,
+              "collapsed": true
+            },
+            {
+              "name": "cancer_cell",
+              "value": 0.601420521736145,
+              "collapsed": true
+            },
+            {
+              "name": "tumour",
+              "value": 0.584874153137207,
+              "collapsed": true
+            },
+            {
+              "name": "kill_cancer_cell",
+              "value": 0.5711121559143066,
+              "collapsed": true
+            },
+            {
+              "name": "nanoparticle",
+              "value": 0.56731116771698,
+              "collapsed": true
+            },
+            {
+              "name": "bloodstream",
+              "value": 0.5662188529968262,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "cancer_patient",
+          "value": 0.5569179654121399,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cancerous",
+              "value": 0.615225076675415,
+              "collapsed": true
+            },
+            {
+              "name": "ovarian",
+              "value": 0.5910403728485107,
+              "collapsed": true
+            },
+            {
+              "name": "stem_cell",
+              "value": 0.5809482336044312,
+              "collapsed": true
+            },
+            {
+              "name": "implantable_device",
+              "value": 0.5615485906600952,
+              "collapsed": true
+            },
+            {
+              "name": "tumor",
+              "value": 0.5495264530181885,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "electronic_implant",
+          "value": 0.5544618368148804,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "spinal_implant",
+              "value": 0.5991730690002441,
+              "collapsed": true
+            },
+            {
+              "name": "artery",
+              "value": 0.5936797261238098,
+              "collapsed": true
+            },
+            {
+              "name": "artificial_retina",
+              "value": 0.5770949125289917,
+              "collapsed": true
+            },
+            {
+              "name": "baldness",
+              "value": 0.5731333494186401,
+              "collapsed": true
+            },
+            {
+              "name": "blood_clot",
+              "value": 0.5622569918632507,
+              "collapsed": true
+            },
+            {
+              "name": "nanobots",
+              "value": 0.5453424453735352,
+              "collapsed": true
+            },
+            {
+              "name": "joint_pain",
+              "value": 0.543063759803772,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "injectable",
+          "value": 0.5501066446304321,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "ingestible",
+              "value": 0.6717994213104248,
+              "collapsed": true
+            },
+            {
+              "name": "drug_delivery",
+              "value": 0.6415542364120483,
+              "collapsed": true
+            },
+            {
+              "name": "bladder",
+              "value": 0.6305922865867615,
+              "collapsed": true
+            },
+            {
+              "name": "blood_flow",
+              "value": 0.6241158246994019,
+              "collapsed": true
+            },
+            {
+              "name": "biocompatible",
+              "value": 0.6217142939567566,
+              "collapsed": true
+            },
+            {
+              "name": "non_-_invasively",
+              "value": 0.6146591901779175,
+              "collapsed": true
+            },
+            {
+              "name": "wounds",
+              "value": 0.6142593026161194,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "geneticist",
+      "value": 0.47484061121940613,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "biologist",
+          "value": 0.5165913105010986,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "biology",
+              "value": 0.5533294081687927,
+              "collapsed": true
+            },
+            {
+              "name": "nanobot",
+              "value": 0.5487001538276672,
+              "collapsed": true
+            },
+            {
+              "name": "organism",
+              "value": 0.54141765832901,
+              "collapsed": true
+            },
+            {
+              "name": "living_cell",
+              "value": 0.5408931970596313,
+              "collapsed": true
+            },
+            {
+              "name": "embryo",
+              "value": 0.5191751718521118,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "gram_dna",
+          "value": 0.5161751508712769,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "store_terabyte_datum",
+              "value": 0.737724781036377,
+              "collapsed": true
+            },
+            {
+              "name": "wyss_institute",
+              "value": 0.5973995923995972,
+              "collapsed": true
+            },
+            {
+              "name": "real_life_lightsaber",
+              "value": 0.578194260597229,
+              "collapsed": true
+            },
+            {
+              "name": "optogenetics",
+              "value": 0.5689178705215454,
+              "collapsed": true
+            },
+            {
+              "name": "put_dvd_disc",
+              "value": 0.5638540387153625,
+              "collapsed": true
+            },
+            {
+              "name": "massachusetts_institute_technology",
+              "value": 0.5605453252792358,
+              "collapsed": true
+            },
+            {
+              "name": "school_engineering_applied",
+              "value": 0.5526127815246582,
+              "collapsed": true
+            },
+            {
+              "name": "superman_memory_crystal",
+              "value": 0.5501947999000549,
+              "collapsed": true
+            },
+            {
+              "name": "strand_dna",
+              "value": 0.5475391149520874,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "bioengineer",
+          "value": 0.5111477375030518,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "novel_method",
+              "value": 0.5998548865318298,
+              "collapsed": true
+            },
+            {
+              "name": "international_team",
+              "value": 0.5912728309631348,
+              "collapsed": true
+            },
+            {
+              "name": "ucla_researcher",
+              "value": 0.5859460830688477,
+              "collapsed": true
+            },
+            {
+              "name": "nerve_cell",
+              "value": 0.5847635865211487,
+              "collapsed": true
+            },
+            {
+              "name": "university_illinois",
+              "value": 0.5816529989242554,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "genome_editing",
+          "value": 0.5090086460113525,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "crispr_cas9",
+              "value": 0.665371835231781,
+              "collapsed": true
+            },
+            {
+              "name": "crispr_gene_editing",
+              "value": 0.5707029104232788,
+              "collapsed": true
+            },
+            {
+              "name": "human_embryo",
+              "value": 0.5411050319671631,
+              "collapsed": true
+            },
+            {
+              "name": "gene_editing",
+              "value": 0.5409371852874756,
+              "collapsed": true
+            },
+            {
+              "name": "biomarker",
+              "value": 0.5263493657112122,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "scientist",
+          "value": 0.4963241219520569,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "researcher",
+              "value": 0.7716090083122253,
+              "collapsed": true
+            },
+            {
+              "name": "physicist",
+              "value": 0.660514235496521,
+              "collapsed": true
+            },
+            {
+              "name": "scientist_create",
+              "value": 0.6297496557235718,
+              "collapsed": true
+            },
+            {
+              "name": "scientists",
+              "value": 0.6124061346054077,
+              "collapsed": true
+            },
+            {
+              "name": "scientist_develop",
+              "value": 0.6055676341056824,
+              "collapsed": true
+            },
+            {
+              "name": "scientist_discover",
+              "value": 0.5988787412643433,
+              "collapsed": true
+            },
+            {
+              "name": "chemist",
+              "value": 0.593801736831665,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "scientist_successfully",
+          "value": 0.49589258432388306,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "scientist_demonstrate",
+              "value": 0.6212438344955444,
+              "collapsed": true
+            },
+            {
+              "name": "chinese_scientist",
+              "value": 0.6050503849983215,
+              "collapsed": true
+            },
+            {
+              "name": "neurons",
+              "value": 0.6001403331756592,
+              "collapsed": true
+            },
+            {
+              "name": "harvard_scientist",
+              "value": 0.5896570682525635,
+              "collapsed": true
+            },
+            {
+              "name": "microrobot",
+              "value": 0.5801407098770142,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monsanto",
+      "value": 0.47168153524398804,
+      "collapsed": false,
+      "children": [
+        {
+          "name": "gmo",
+          "value": 0.6372357606887817,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "gmos",
+              "value": 0.5629202127456665,
+              "collapsed": true
+            },
+            {
+              "name": "crops",
+              "value": 0.5230073928833008,
+              "collapsed": true
+            },
+            {
+              "name": "antibiotic",
+              "value": 0.4958767890930176,
+              "collapsed": true
+            },
+            {
+              "name": "corn",
+              "value": 0.49283456802368164,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "soybean",
+          "value": 0.6091703772544861,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "cooking_oil",
+              "value": 0.5802889466285706,
+              "collapsed": true
+            },
+            {
+              "name": "time_strong_steel",
+              "value": 0.5332005023956299,
+              "collapsed": true
+            },
+            {
+              "name": "bioplastic",
+              "value": 0.5202580690383911,
+              "collapsed": true
+            },
+            {
+              "name": "residue",
+              "value": 0.5069571137428284,
+              "collapsed": true
+            },
+            {
+              "name": "nanotech",
+              "value": 0.5020145773887634,
+              "collapsed": true
+            },
+            {
+              "name": "biodegradable_plastic",
+              "value": 0.501825749874115,
+              "collapsed": true
+            },
+            {
+              "name": "soy",
+              "value": 0.5013657212257385,
+              "collapsed": true
+            },
+            {
+              "name": "biodegradable",
+              "value": 0.5007106065750122,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "herbicide",
+          "value": 0.515487790107727,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "genetically_modify_crop",
+              "value": 0.5282365679740906,
+              "collapsed": true
+            },
+            {
+              "name": "weed",
+              "value": 0.5122438073158264,
+              "collapsed": true
+            },
+            {
+              "name": "yeast",
+              "value": 0.4774154722690582,
+              "collapsed": true
+            },
+            {
+              "name": "farming",
+              "value": 0.4765356779098511,
+              "collapsed": true
+            },
+            {
+              "name": "veggie",
+              "value": 0.4762970507144928,
+              "collapsed": true
+            },
+            {
+              "name": "contaminant",
+              "value": 0.47362813353538513,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "pesticide",
+          "value": 0.5011993646621704,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "livestock",
+              "value": 0.5623139142990112,
+              "collapsed": true
+            },
+            {
+              "name": "pollen",
+              "value": 0.5458344221115112,
+              "collapsed": true
+            },
+            {
+              "name": "french_wine",
+              "value": 0.543120265007019,
+              "collapsed": true
+            },
+            {
+              "name": "toxin",
+              "value": 0.5422226190567017,
+              "collapsed": true
+            },
+            {
+              "name": "fertilizer",
+              "value": 0.5371503829956055,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "genetically_modify",
+          "value": 0.5006354451179504,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "biotech_company",
+              "value": 0.6015722751617432,
+              "collapsed": true
+            },
+            {
+              "name": "genetically",
+              "value": 0.5964618921279907,
+              "collapsed": true
+            },
+            {
+              "name": "zika",
+              "value": 0.5573930740356445,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "syngenta",
+          "value": 0.495609313249588,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "machinery，products，eastmachinery",
+              "value": 0.4607032537460327,
+              "collapsed": true
+            },
+            {
+              "name": "infringment",
+              "value": 0.4493737816810608,
+              "collapsed": true
+            },
+            {
+              "name": "agro",
+              "value": 0.44745272397994995,
+              "collapsed": true
+            },
+            {
+              "name": "megafactories",
+              "value": 0.44387930631637573,
+              "collapsed": true
+            },
+            {
+              "name": "patent_invalid",
+              "value": 0.4391289949417114,
+              "collapsed": true
+            },
+            {
+              "name": "massive_copyright_infringement",
+              "value": 0.43081462383270264,
+              "collapsed": true
+            },
+            {
+              "name": "herbs",
+              "value": 0.4231277108192444,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "salmon",
+          "value": 0.4802638292312622,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "transgenic",
+              "value": 0.5577148199081421,
+              "collapsed": true
+            },
+            {
+              "name": "fish",
+              "value": 0.5158013105392456,
+              "collapsed": true
+            },
+            {
+              "name": "fillet",
+              "value": 0.4878307580947876,
+              "collapsed": true
+            },
+            {
+              "name": "cattle",
+              "value": 0.48411935567855835,
+              "collapsed": true
+            },
+            {
+              "name": "vegetable",
+              "value": 0.4811663031578064,
+              "collapsed": true
+            },
+            {
+              "name": "jellyfish",
+              "value": 0.48013609647750854,
+              "collapsed": true
+            },
+            {
+              "name": "food_supply",
+              "value": 0.4760967195034027,
+              "collapsed": true
+            }
+          ]
+        },
+        {
+          "name": "genetically_engineer",
+          "value": 0.4795132279396057,
+          "collapsed": true,
+          "children": [
+            {
+              "name": "microbe",
+              "value": 0.6239153146743774,
+              "collapsed": true
+            },
+            {
+              "name": "bacterium",
+              "value": 0.6066197752952576,
+              "collapsed": true
+            },
+            {
+              "name": "plant_seed",
+              "value": 0.57088303565979,
+              "collapsed": true
+            },
+            {
+              "name": "spinach",
+              "value": 0.5708057880401611,
+              "collapsed": true
+            },
+            {
+              "name": "hydrogel",
+              "value": 0.5550750494003296,
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+    myChart.setOption(option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [
+            {
+                type: 'tree',
+
+                data: [data],
+
+                top: '18%',
+                bottom: '14%',
+
+                layout: 'radial',
+
+                symbol: 'emptyCircle',
+
+                symbolSize: 7,
+
+                initialTreeDepth: 3,
+
+                animationDurationUpdate: 750,
+
+                emphasis: {
+                    focus: 'descendant'
+                }
+            }
+        ]
+    });
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
